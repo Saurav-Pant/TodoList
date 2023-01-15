@@ -26,6 +26,10 @@ function App() {
     const delTodo = todo.filter((d) => d.id !== id);
     setTodo([...delTodo]);
   };
+  
+  const handleEdit=()=>{
+    
+  }
 
   return (
     <div className="whole_todo">
