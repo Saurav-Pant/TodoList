@@ -1,0 +1,45 @@
+.TodoShow{
+    width: 70vw;
+    margin: auto;
+    text-align: center;
+    padding-top: 1em;
+    color:white;
+
+    button {
+    border: none;
+    padding: 10px;
+    border-radius:15px ;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    }
+
+    .all{
+    list-style-type: none;
+    }
+    .wholeTodo{
+        border-radius: 50px;
+        margin: 10px 0;
+        background-color: #5dadf8;
+        padding: 10px 20px ;
+        display: flex;
+        align-items: center;
+    
+    
+    .SingleTodo{
+        padding-right: 10px;
+        font-size: 20px;
+        font-weight: 500;
+        flex: 1;
+    }
+
+    .edit,.delete,.done
+    {
+        margin-right: 2em;
+    }
+    .done .input1{
+        height: 20px;
+        width: 20px;
+    }
+}
+}
