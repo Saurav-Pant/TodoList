@@ -27,9 +27,7 @@ function App() {
     setTodo([...delTodo]);
   };
   
-  const handleEdit=()=>{
-    
-  }
+ 
 
   return (
     <div className="whole_todo">
