@@ -1,0 +1,48 @@
+.whole_todo{
+    display: grid;
+    place-items: center;
+
+    h1{
+        color: black;
+    }
+
+    .input_Field {
+        width: 70vw;
+        height: 15vh;
+        border: 1px solid gray;
+        padding: 2em;
+        border-radius: 4px;
+        
+    .todo {
+        height: 4vh;
+        width: 4vh;
+     }
+
+    input {
+        width: 60vw;
+        height: 4vh;
+        border: 1px solid gray;
+        outline: none;
+        border-radius: 5px;
+        margin-left: 2em;
+     }
+     button{
+        width: 60vw;
+        margin-top: 1em;
+        margin: 1em 2.3em;
+        height: 4.5vh;
+        cursor: pointer;
+        background-color: #0081B4;
+        color: white;
+        border-radius: 5px;
+        letter-spacing: 2px;
+        border: none;
+        outline: none;
+        font-weight: 700;
+     }
+      button:hover{
+        background-color: #0589bd;
+    }
+    }
+
+}
