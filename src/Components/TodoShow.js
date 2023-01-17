@@ -6,8 +6,6 @@ function TodoShow({
   todo,
   handleDelete,
   handleEdit,
-  isChecked,
-  handleCheckboxChange,
   alertStyle,
   complete,
 }) {
@@ -22,9 +20,6 @@ function TodoShow({
                 type="checkbox"
                 id="checkbox"
                 className="input1"
-                checked={isChecked}
-                onChange={handleCheckboxChange}
-                // complete={complete}
               />
             </label>
             <button className="edit" onClick={() => handleEdit(t.id)}>
