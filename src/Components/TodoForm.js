@@ -16,7 +16,7 @@ function TodoForm({ input, storingInput, handleReloading, Toggle, setToggle }) {
         {Toggle ? (
           <button onClick={handleReloading}>Add New Task</button>
         ) : (
-          <button onClick={handleReloading}>Edit</button>
+          <button onClick={handleReloading}>Edit Task</button>
         )}
       </form>
     </div>

@@ -10,21 +10,6 @@ function App() {
   const [id, setId] = useState(uuidv4());
   const [edit, setEdit] = useState(null);
   const [Toggle, setToggle] = useState(true);
-  const [isChecked, setIsChecked] = useState(false);
-  // const [complete, setComplete] = useState(false);
-
-  const [alertStyle, setAlertStyle] = useState({
-    backgroundColor: "#5dadf8",
-  });
-
-  function handleCheckboxChange(event) {
-    setIsChecked(event.target.checked);
-    setAlertStyle(
-      isChecked
-        ? { backgroundColor: "#5dadf8" }
-        : { backgroundColor: "#03C988" }
-    );
-  }
 
   const storingInput = (e) => {
     setInput(e.target.value);
@@ -81,10 +66,6 @@ function App() {
         handleDelete={handleDelete}
         input={input}
         handleEdit={handleEdit}
-        isChecked={isChecked}
-        handleCheckboxChange={handleCheckboxChange}
-        alertStyle={alertStyle}
-        // complete={complete}
       />
     </div>
   );
