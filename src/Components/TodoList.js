@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/TodoList.scss";
-function TodoList() {
+function TodoList(handleUndone) {
   return (
     <div className="Whole_TodoList">
       <h1>TodoList</h1>

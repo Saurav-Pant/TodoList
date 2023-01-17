@@ -5,12 +5,12 @@ import TodoShow from "./Components/TodoShow";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [input, setInput] = useState("");
-  const [todo, setTodo] = useState([]);
-  const [id, setId] = useState(uuidv4());
-  const [edit, setEdit] = useState(null);
-  const [Toggle, setToggle] = useState(true);
-  const [isChecked, setIsChecked] = useState(false);
+  const [input, setInput] = useState(""); //For Taking Input By User.
+  const [todo, setTodo] = useState([]); //For List Of Inputs.
+  const [id, setId] = useState(uuidv4()); //To Generate Unique Id.
+  const [edit, setEdit] = useState(null); //For Editing Todo.
+  const [Toggle, setToggle] = useState(true); //To Toggle Between Add New Task and Edit Task.
+  const [isChecked, setIsChecked] = useState(false); //To Checked Between.
 
   const storingInput = (e, id) => {
     setInput(e.target.value);
@@ -41,11 +41,11 @@ function App() {
     const delTodo = todo.filter((d) => d.id !== id);
     console.log(delTodo);
     setTodo([...delTodo]);
+    setInput("");
   };
 
   const handleEdit = (id) => {
     const editTodo = todo.find((e) => e.id === id);
-    console.log(editTodo.input);
     setInput(editTodo.input);
     setToggle(false);
     setEdit(id);
@@ -66,7 +66,9 @@ function App() {
         handleReloading={handleReloading}
         Toggle={Toggle}
       />
+
       <TodoList />
+
       <TodoShow
         todo={todo}
         handleDelete={handleDelete}
