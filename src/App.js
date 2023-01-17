@@ -10,8 +10,9 @@ function App() {
   const [id, setId] = useState(uuidv4());
   const [edit, setEdit] = useState(null);
   const [Toggle, setToggle] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
 
-  const storingInput = (e) => {
+  const storingInput = (e, id) => {
     setInput(e.target.value);
   };
 
@@ -30,7 +31,7 @@ function App() {
       setInput("");
       setEdit(null);
     } else {
-      setTodo([{ id: id, input }, ...todo]);
+      setTodo([{ id: id, input, isChecked }, ...todo]);
       setId(uuidv4());
       setInput("");
     }
@@ -50,6 +51,12 @@ function App() {
     setEdit(id);
   };
 
+  function handleCheckboxChange(i) {
+    const newTodo = [...todo];
+    newTodo[i].isChecked = !newTodo[i].isChecked;
+    setTodo(newTodo);
+  }
+
   return (
     <div className="whole_todo">
       <h1>TodoInput</h1>
@@ -58,7 +65,6 @@ function App() {
         storingInput={storingInput}
         handleReloading={handleReloading}
         Toggle={Toggle}
-        setToggle={setToggle}
       />
       <TodoList />
       <TodoShow
@@ -66,6 +72,7 @@ function App() {
         handleDelete={handleDelete}
         input={input}
         handleEdit={handleEdit}
+        handleCheckboxChange={handleCheckboxChange}
       />
     </div>
   );

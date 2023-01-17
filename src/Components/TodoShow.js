@@ -6,20 +6,25 @@ function TodoShow({
   todo,
   handleDelete,
   handleEdit,
-  alertStyle,
-  complete,
+  handleCheckboxChange
 }) {
   return (
     <div className="TodoShow">
       <ul className="all">
-        {todo.map((t) => (
-          <li className="wholeTodo" key={t.id} style={alertStyle}>
+        {todo.map((t, index) => (
+          <li
+            className="wholeTodo"
+            key={t.id}
+            style={{ backgroundColor: t.isChecked ? "#03C988" : "#5dadf8" }}
+          >
             <span className="SingleTodo">{t.input}</span>
             <label className="done">
               <input
                 type="checkbox"
                 id="checkbox"
                 className="input1"
+                checked={todo.isChecked}
+                onChange={() => handleCheckboxChange(index)}
               />
             </label>
             <button className="edit" onClick={() => handleEdit(t.id)}>

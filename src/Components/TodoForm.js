@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/TodoForm.scss";
 
-function TodoForm({ input, storingInput, handleReloading, Toggle, setToggle }) {
+function TodoForm({ input, storingInput, handleReloading, Toggle}) {
   return (
     <div className="input_Field">
       <form>
@@ -12,7 +12,6 @@ function TodoForm({ input, storingInput, handleReloading, Toggle, setToggle }) {
           onChange={storingInput}
         />
         <br />
-        {/* <button onClick={handleReloading}>Add New Task</button> */}
         {Toggle ? (
           <button onClick={handleReloading}>Add New Task</button>
         ) : (
