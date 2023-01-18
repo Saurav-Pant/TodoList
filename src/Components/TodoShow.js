@@ -4,18 +4,19 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 function TodoShow({
   todo,
+  filteredItems,
   handleDelete,
   handleEdit,
-  handleCheckboxChange
+  // handleCheckboxChange,
 }) {
   return (
     <div className="TodoShow">
       <ul className="all">
-        {todo.map((t, index) => (
+        {filteredItems.map((t, index) => (
           <li
             className="wholeTodo"
             key={t.id}
-            style={{ backgroundColor: t.isChecked ? "#03C988" : "#5dadf8" }}
+            // style={{ backgroundColor: t.isChecked ? "#03C988" : "#5dadf8" }}
           >
             <span className="SingleTodo">{t.input}</span>
             <label className="done">
@@ -24,7 +25,7 @@ function TodoShow({
                 id="checkbox"
                 className="input1"
                 checked={todo.isChecked}
-                onChange={() => handleCheckboxChange(index)}
+                // onChange={() => handleCheckboxChange(index)}
               />
             </label>
             <button className="edit" onClick={() => handleEdit(t.id)}>

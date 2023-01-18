@@ -11,6 +11,7 @@ function App() {
   const [edit, setEdit] = useState(null); //For Editing Todo.
   const [Toggle, setToggle] = useState(true); //To Toggle Between Add New Task and Edit Task.
   const [isChecked, setIsChecked] = useState(false); //To Checked Between.
+  const [itemsToShow, setItemsToShow] = useState("all");
 
   const storingInput = (e, id) => {
     setInput(e.target.value);
@@ -31,7 +32,7 @@ function App() {
       setInput("");
       setEdit(null);
     } else {
-      setTodo([{ id: id, input, isChecked }, ...todo]);
+      setTodo([{ id: id, input, isChecked, itemsToShow: "all" }, ...todo]);
       setId(uuidv4());
       setInput("");
     }
@@ -51,12 +52,24 @@ function App() {
     setEdit(id);
   };
 
-  function handleCheckboxChange(i) {
-    const newTodo = [...todo];
-    newTodo[i].isChecked = !newTodo[i].isChecked;
-    setTodo(newTodo);
-  }
+  // function handleCheckboxChange(i) {
+  //   const newTodo = [...todo];
+  //   newTodo[i].isChecked = !newTodo[i].isChecked;
+  //   setTodo(newTodo);
+  // }
+  
+  const handleFilterChange = (filter) => {
+    setItemsToShow(filter);
+  };
 
+  let filteredItems = [];
+  if (itemsToShow === "all") {
+    filteredItems = todo;
+  } else if (itemsToShow === "todo") {
+    filteredItems = todo.filter((todo) => !todo.isChecked);
+  } else if (itemsToShow === "done") {
+    filteredItems = todo.filter((todo) => todo.isChecked);
+  }
   return (
     <div className="whole_todo">
       <h1>TodoInput</h1>
@@ -67,14 +80,15 @@ function App() {
         Toggle={Toggle}
       />
 
-      <TodoList />
+      <TodoList handleFilterChange={handleFilterChange} />
 
       <TodoShow
         todo={todo}
+        filteredItems={filteredItems}
         handleDelete={handleDelete}
         input={input}
         handleEdit={handleEdit}
-        handleCheckboxChange={handleCheckboxChange}
+        // handleCheckboxChange={handleCheckboxChange}
       />
     </div>
   );
